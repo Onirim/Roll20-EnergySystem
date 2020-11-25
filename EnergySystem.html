@@ -1,0 +1,106 @@
+<div class="sheet-charactertab">
+<div class='sheet-3colrow' style="width: 800px">
+    <div style="width: 125px" class="sheet-col">    
+        <img src="https://zupimages.net/up/20/48/hthr.png">
+		<select name="attr_Rank" style="font-family: 'arial'; position: absolute; height: 90px; width: 90px; top: 83px; left: 57px; border: none; background-color: transparent; font-size: 80px; text-align: center; color: orangered; font-weight: bolder">
+			<option value="Omega">Ω</option>
+			<option value="Alpha">A</option>
+			<option value="Beta">B</option>
+			<option value="Gamma">C</option>
+			<option value="Delta">D</option>
+			<option value="Epsilon">E</option>
+		</select>
+		<!-- <input style="height: 80px; width: 80px; margin-top: -146px; margin-left: 23px; border: none; background-color: transparent; font-size: 80px; text-align: center; color: orangered; font-weight: bolder" type="text" name="attr_Rank"> -->
+		
+    </div>
+    <div class="sheet-col" style="width: 300px">
+        <label class="sheet-section-top">Identité</label><input style="width: 300px" type="text" name="attr_Char_Name">
+	    <label class="sheet-section-top">Origine</label><input style="width: 300px" type="text" name="attr_Origin">
+		<label class="sheet-section-top">Affiliation</label><input style="width: 300px" type="text" name="attr_Affiliation">
+     </div>    
+	 <div class="sheet-col" style="width: 300px">
+		<label class="sheet-section-top">Niveau de vie</label><input style="width: 300px" type="text" name="attr_LifeLevel">
+	    <label class="sheet-section-top">Occupation</label><input style="width: 300px" type="text" name="attr_Occupation">
+        <label class="sheet-section-top">Objectif</label><input style="width: 300px" type="text" name="attr_Objective">
+    </div>  		
+</div>
+
+
+<div class='sheet-2colrow' style="width: 800px">
+    <div class="sheet-col-left-abilities">
+		<div class="sheet-section-header">ATTRIBUTS</div>
+		<label class="sheet-section-abilities" style="width: 128px; text-align: center">Energie</label><label class="sheet-section-abilities" style="width: 128px; text-align: center">Equilibre</label><label class="sheet-section-abilities" style="width: 128px; text-align: center">Vigueur</label>
+		<input style="height: 60px; width: 60px; font-size: 50px; text-align: center; color: orangered; margin-left: 33px; border:1px solid #000" type="text" name="attr_energy_max" value="0">
+		<input style="height: 60px; width: 60px; font-size: 50px; text-align: center; color: orangered; margin-left: 66px; border:1px solid #000" type="text" name="attr_equilibre" value="0">
+		<input style="height: 60px; width: 60px; font-size: 50px; text-align: center; color: orangered; margin-left: 66px; border:1px solid #000" type="text" name="attr_hp_max" value="0">
+
+		<div class="sheet-section-header">JETONS</div>
+		<label class="sheet-section-abilities" style="width: 128px; text-align: center">Disponibles</label><label class="sheet-section-abilities" style="width: 128px; text-align: center">Défense</label><label class="sheet-section-abilities" style="width: 128px; text-align: center">Points de Vie</label>
+		<input style="height: 80px; width: 80px; font-size: 40px; text-align: center; color: orangered; margin-left: 25px; border:5px dashed red; border-radius: 40px; background-color: #ffdbdb" type="number" name="attr_energy" value="0">
+		<input style="height: 80px; width: 80px; font-size: 40px; text-align: center; color: #0064cd; margin-left: 45px; border:5px dashed #0064cd; border-radius: 40px; background-color: #d7e5fd" type="number" name="attr_defense" value="0">
+		<input style="height: 60px; width: 60px; font-size: 40px; text-align: center; color: green; margin-left: 55px; border:3px solid green" type="number" name="attr_hp" value="0">
+		
+		<div class="sheet-section-header">DIVERS</div>
+		<p class="sheet-section-abilities" style="text-align: center; width: 100px; float: left">Pts de personnage</p>
+		<p class="sheet-section-abilities" style="text-align: center; width: 100px; float: left; margin-left: 40px">Pts d'Expérience</p>
+		<p class="sheet-section-abilities" style="text-align: center; width: 100px; float: left; margin-left: 40px">Pts de Réserve</p>
+		<input style="width: 100px; margin-left: 5px" name="attr_character_points" type="number" value="0">
+		<input style="width: 100px; margin-left: 36px" name="attr_experience_points" type="number" value="0">
+		<input style="width: 100px; margin-left: 36px" name="attr_pool_points" type="number" value="0">
+		
+		<div class="sheet-section-header">NOTES</div>
+		<textarea style="width:380px; height: 80px" name="attr_notes"></textarea>
+    </div>
+	<div class="sheet-col-right-powers">	
+			<div class="sheet-section-header">CAPACITES</div>
+			<fieldset class="repeating_Powers">  
+
+					<input class="sheet-section-powers" style="width:100%; border: none" type="text" name="attr_power_name" />
+					<textarea style="width:380px; height: 90px" name="attr_power_desc"></textarea>     
+
+			</fieldset>
+		
+	</div>
+</div>
+</div>
+
+
+<div class="sheet-organizationtab">
+<p>Organization goes here</p>
+</div>
+    <button type="action" name="act_character" style="margin-top: 2px;" >Personnage</button>
+    <button type="action" name="act_organization" >Organisation</button>
+	
+	<input type="hidden" name="attr_defense" value="0" />
+	<input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab"  value="character"  />
+
+<!-- ##############################################
+     #               SCRIPTS SECTION              #
+     ############################################## -->
+
+
+<script type="text/worker">
+
+    const buttonlist = ["character","organization"];
+    buttonlist.forEach(button => {
+        on(`clicked:${button}`, function() {
+            setAttrs({
+                sheetTab: button
+            });
+        });
+    });
+
+	on('change:energy_max change:defense_max', () => {
+		getAttrs(['energy_max','defense_max'], values => {
+			const energy = parseInt( values.energy_max) || 0;
+			const defense = parseInt( values.defense_max) || 0;
+			// check to see if calculation is on or off. If off, end the sheet worker.
+			// calculate hp
+			const maxdef = energy;
+			// update hp attribute on sheet.
+			setAttrs({
+				defense_max: maxdef
+			});
+		});
+	});
+</script>
